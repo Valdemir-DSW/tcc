@@ -1,0 +1,15 @@
+import customtkinter as ctk
+
+
+main = ctk.CTk()
+main.title("SISTEMA")
+main.iconbitmap(os.path.abspath("vicon.ico"))
+main.geometry("600x400")
+main.resizable(False,False)
+
+
+
+
+
+
+main.mainloop()
