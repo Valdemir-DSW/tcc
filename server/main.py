@@ -68,17 +68,36 @@ def excluir_servico():
 @app.route("/clientes", methods=["POST"])
 def cadastrar_cliente():
     data = request.json
+    nome = data.get("nome")
+
+    if not nome:
+        return jsonify({"erro": "Nome do cliente é obrigatório!"}), 400
+
     clientes = carregar_dados(DB_FILES["clientes"])
-    clientes.append(data["nome"])
+
+    if nome in clientes:
+        return jsonify({"erro": "Cliente já cadastrado!"}), 400
+
+    clientes.append(nome)
     salvar_dados(DB_FILES["clientes"], clientes)
     return jsonify({"mensagem": "Cliente cadastrado com sucesso!"})
+
 
 # Rota: Cadastrar Atendente
 @app.route("/atendentes", methods=["POST"])
 def cadastrar_atendente():
     data = request.json
+    nome = data.get("nome")
+
+    if not nome:
+        return jsonify({"erro": "Nome do atendente é obrigatório!"}), 400
+
     atendentes = carregar_dados(DB_FILES["atendentes"])
-    atendentes.append(data["nome"])
+
+    if nome in atendentes:
+        return jsonify({"erro": "Atendente já cadastrado!"}), 400
+
+    atendentes.append(nome)
     salvar_dados(DB_FILES["atendentes"], atendentes)
     return jsonify({"mensagem": "Atendente cadastrado com sucesso!"})
 
@@ -86,10 +105,20 @@ def cadastrar_atendente():
 @app.route("/servicos", methods=["POST"])
 def cadastrar_servico():
     data = request.json
+    nome = data.get("nome")
+
+    if not nome:
+        return jsonify({"erro": "Nome do serviço é obrigatório!"}), 400
+
     servicos = carregar_dados(DB_FILES["servicos"])
-    servicos.append(data["nome"])
+
+    if nome in servicos:
+        return jsonify({"erro": "Serviço já cadastrado!"}), 400
+
+    servicos.append(nome)
     salvar_dados(DB_FILES["servicos"], servicos)
     return jsonify({"mensagem": "Serviço cadastrado com sucesso!"})
+
 
 # Rota: Cadastrar Atendimento com Nota
 @app.route("/atendimentos", methods=["POST"])
@@ -117,9 +146,7 @@ def listar_servicos_realizados():
     atendimentos = carregar_dados(DB_FILES["atendimentos"])
     return jsonify(atendimentos)
 
-# Rota: Calcular Média das Notas
-# Rota: Calcular Média das Notas
-# Rota: Calcular Média das Notas
+
 @app.route("/media_notas", methods=["GET"])
 def media_notas():
     atendimentos = carregar_dados(DB_FILES["atendimentos"])
