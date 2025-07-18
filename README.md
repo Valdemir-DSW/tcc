@@ -98,6 +98,13 @@ Todos os dados são salvos como listas Python em arquivos `.pkl`, utilizando o m
 
 A comunicação entre o cliente (interface gráfica, navegador ou software) e o servidor Flask ocorre via **HTTP** (Hypertext Transfer Protocol). 
 
+HTTP (Hypertext Transfer Protocol) é o protocolo fundamental para a transferência de dados na web, permitindo a comunicação entre clientes (como navegadores) e servidores. Ele opera no modelo cliente-servidor, onde o cliente (navegador) envia uma requisição ao servidor, que responde com os dados solicitados, como páginas HTML, imagens, etc. 
+Em termos mais simples, HTTP é o protocolo que permite que você acesse um site no seu navegador. Quando você digita um endereço ou clica em um link, seu navegador envia uma requisição HTTP ao servidor onde o site está hospedado. O servidor responde com os dados necessários para exibir a página, e seu navegador os interpreta e mostra o conteúdo para você. 
+
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ed28171a-4c93-49f2-ac72-b24f9d9b6636" />
+
+
 O protocolo HTTP define **métodos** que representam ações possíveis:
 
 - **GET**: Buscar dados (ex: listar clientes, atendimentos).
