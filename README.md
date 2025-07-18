@@ -93,3 +93,48 @@ Todos os dados são salvos como listas Python em arquivos `.pkl`, utilizando o m
 ---
 
 
+
+## 🌐 Sobre o Protocolo HTTP
+
+A comunicação entre o cliente (interface gráfica, navegador ou software) e o servidor Flask ocorre via **HTTP** (Hypertext Transfer Protocol). 
+
+O protocolo HTTP define **métodos** que representam ações possíveis:
+
+- **GET**: Buscar dados (ex: listar clientes, atendimentos).
+- **POST**: Enviar dados para criação ou alteração.
+- **DELETE**: Remover um recurso.
+- **PUT/PATCH**: Atualizar dados (não usado neste projeto).
+
+Cada rota da API responde a um ou mais desses métodos, interpretando os dados JSON enviados e retornando respostas também em formato JSON.
+
+### Exemplo de Fluxo:
+
+1. O cliente envia uma requisição `POST` com os dados de um novo cliente:
+```json
+{ "nome": "João" }
+```
+
+2. O servidor Flask recebe, processa e responde com:
+```json
+{ "mensagem": "Cliente cadastrado com sucesso!" }
+```
+
+3. Toda a comunicação ocorre usando a biblioteca `requests` no cliente Python.
+
+---
+
+## 🧰 Cliente Python com `customtkinter`
+
+O cliente desktop que consome a API pode usar a biblioteca `customtkinter`, além de `requests` para enviar/receber dados da API Flask.
+
+### Instalação das dependências do cliente:
+
+```bash
+pip install customtkinter pillow requests
+```
+
+- `customtkinter`: interface gráfica moderna baseada em tkinter.
+- `pillow`: para manipulação de imagens.
+- `requests`: para fazer requisições HTTP (GET, POST, DELETE).
+
+---
